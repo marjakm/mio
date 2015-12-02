@@ -314,7 +314,7 @@ impl Evented for UdpSocket {
     }
 
     fn deregister(&self, selector: &mut Selector) -> io::Result<()> {
-        self.inner().iocp.deregister(selector)
+        self.inner().iocp.checked_deregister(selector)
     }
 }
 
